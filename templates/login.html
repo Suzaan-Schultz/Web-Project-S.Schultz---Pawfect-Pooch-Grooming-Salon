@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Pawfect Pooch Grooming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Pawfect Pooch</div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/appointments">Appointments</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/display_page">Display Page</a></li>
+    </ul>
+</nav>
+
+<div class="login-container">
+
+    <!-- Login form -->
+    <form id="login-form" action="/login" method="POST" class="login-form">
+        <h2>Login</h2>
+        <label for="login-username">Username</label>
+        <input type="text" id="login-username" name="username" required>
+
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" required>
+
+        <button type="submit" class="btn login-btn">Login</button>
+        <button type="button" id="show-register" class="btn register-toggle-btn">Create Account</button>
+
+        {% if session.username %}
+        <div style="margin-top: 20px;">
+            <form action="{{ url_for('edit_account') }}" method="GET" style="display:inline-block;">
+                <button type="submit" class="btn edit-btn">Edit Account</button>
+            </form>
+
+            <form action="{{ url_for('delete_account') }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete your account?');">
+                <button type="submit" class="btn delete-btn">Delete Account</button>
+            </form>
+        </div>
+        {% endif %}
+    </form>
+
+    <!-- Register form (hidden by default) -->
+    <form id="register-form" action="/register" method="POST" class="register-form" style="display:none;">
+        <h2>Register</h2>
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="register-username">Username</label>
+        <input type="text" id="register-username" name="username" required>
+
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" name="password" required>
+
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" name="email" required>
+
+        <button type="submit" class="btn register-btn">Register</button>
+        <button type="button" id="show-login" class="btn login-toggle-btn">Back to Login</button>
+    </form>
+
+</div>
+<!-- JavaScript link added -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

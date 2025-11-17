@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Pawfect Pooch Grooming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+       <nav class="navbar">
+        <div class="logo">Pawfect Pooch</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/appointments">Appointments</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/display_page">Display Page</a></li>
+        </ul>
+   </nav>
+    <section class="services-header">
+       <h1>Our Grooming Services</h1>
+       <p>Gentle care, premium products, and a whole lot of love.</p>
+       <a href="/appointments" class="btn">Book now!</a>
+   </section>
+
+   <section class="services-container">
+
+        <div class="service-card">
+            <h3>Basic Wash</h3>
+            <p>A gentle wash using high-quality shampoos suitable for all coat types.</p>
+            <span class="price">R100</span>
+        </div>
+
+        <div class="service-card">
+            <h3>Summer</h3>
+            <p>Includes wash, blow dry, shorter summer shave and nail trim.</p>
+            <span class="price">Extra Small R130</span>
+            <span class="price">Small R190</span>
+            <span class="price">Medium R290</span>
+            <span class="price">Large R500</span>
+            <span class="price">Extra Large R600-R1000 (Depending on the breed type)</span>
+        </div>
+
+        <div class="service-card">
+            <h3>Winter</h3>
+            <p>Includes wash, blow dry, longer winter shave and nail trim.</p>
+            <span class="price">Extra Small R150</span>
+            <span class="price">Small R210</span>
+            <span class="price">Medium R310</span>
+            <span class="price">Large R520</span>
+            <span class="price">Extra Large R600-R1000 (Depending on the breed type)</span>
+        </div>
+
+        <div class="service-card">
+            <h3>Nail trim</h3>
+            <p>Healthy feet and toes with our gentle nail trimming process.</p>
+            <span class="price">Small R20</span>
+            <span class="price">Medium R25</span>
+            <span class="price">Large R30</span>
+        </div>
+
+   </section>
+</body>
+</html>

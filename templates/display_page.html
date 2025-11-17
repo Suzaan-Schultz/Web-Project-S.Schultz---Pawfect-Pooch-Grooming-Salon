@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Page - Pawfect Pooch Grooming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Pawfect Pooch</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/appointments">Appointments</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/display_page">Display Page</a></li>
+        </ul>
+    </nav>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Appointments table -->
+    <div class="contact-info">
+        <h1>All Appointments</h1>
+        <div class="table-wrapper">
+        {% if appointments %}
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Owner Name</th>
+                    <th>Dog Name</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment[0] }}</td>
+                    <td>{{ appointment[1] }}</td>
+                    <td>{{ appointment[2] }}</td>
+                    <td>{{ appointment[3] }}</td>
+                    <td>{{ appointment[4] }}</td>
+                    <td>{{ appointment[5] }}</td>
+                    <td>{{ appointment[6] }}</td>
+                    <td>
+                        {% if session.get('username') %}
+                        <form action="{{ url_for('delete_appointment', appointment_id=appointment[0]) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this appointment?');">
+                            <button type="submit" class="btn delete-btn">Delete</button>
+                        </form>
+                        {% else %}
+                        <span style="color: #ff6f61; font-weight:bold;">Login to Delete</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        {% else %}
+        <p>No appointments found.</p>
+        {% endif %}
+    </div>
+
+    <!-- Registered users table -->
+    <div class="contact-info" style="margin-top: 50px;">
+        <h1>Registered Users</h1>
+        {% if users %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                    <td>{{ user[3] }}</td>
+                    <td>{{ user[4] }}</td>
+                    <td>{{ user[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No registered users found.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>

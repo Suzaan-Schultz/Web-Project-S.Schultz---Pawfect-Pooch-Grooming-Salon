@@ -1,0 +1,653 @@
+/* ========================= */
+/* Overall styling */
+/* ========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+
+
+/* ========================= */
+/* Navigation bar styling */
+/* ========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffb347;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin-left: 25px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #333;
+}
+
+
+
+/* ========================= */
+/* Home section on index page styling */
+/* ========================= */
+.home {
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/static/images/dogs.png') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 120px 20px;
+}
+
+.home h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.home p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.home .btn {
+    padding: 12px 25px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+.home .btn:hover {
+    background-color: #64bbf5;
+}
+
+
+
+/* ========================= */
+/* About section styling */
+/* ========================= */
+.about {
+    max-width: 900px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff7ef;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about h2 {
+    font-size: 2.2rem;
+    color: #ff6f61;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 1.15rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.about .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.about .btn:hover {
+    background-color: #64bbf5;
+}
+
+
+
+/* ========================= */
+/* Services page styling */
+/* ========================= */
+.services-header {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.services-header h1 {
+    font-size: 2.6rem;
+    color: #ff6f61;
+    margin-bottom: 10px;
+}
+
+.services-header p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.services-header .btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.services-header .btn:hover {
+    background-color: #64bbf5;
+}
+
+
+
+/* ========================= */
+/* Services grid styling */
+/* ========================= */
+.services-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.service-card {
+    background: #fff7ef;
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    color: #ff6f61;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.service-card .price {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #ffb347;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 6px;
+    margin: 6px 0;
+    width: fit-content;
+}
+
+
+
+/* ========================= */
+/* Gallery page styling */
+/* ========================= */
+.gallery img {
+    width: 250px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.show {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox img {
+    max-width: 90vh;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+
+#closeBtn {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+/* ========================= */
+/* Contact page styling */
+/* ========================= */
+.contact-info {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background: #fff7ef;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.contact-info h1 {
+    font-size: 2.4rem;
+    color: #ff6f61;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.contact-info strong {
+    color: #ff6f61;
+    font-weight: bold;
+}
+
+.contact-info h3 {
+    margin-top: 30px;
+    font-size: 1.8rem;
+    color: #ff6f61;
+}
+
+
+
+/* ========================= */
+/* Login and Register forms */
+/* ========================= */
+.login-container {
+    max-width: 420px;
+    margin: 70px auto;
+    background: #fff7ef;
+    padding: 40px 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 2rem;
+    color: #ff6f61;
+    margin-bottom: 15px;
+}
+
+/* Make all form elements stack properly */
+.login-form,
+.register-form {
+    display: block;
+    width: 100%;
+}
+
+.login-form label,
+.register-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.login-form input,
+.register-form input {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: 0.2s ease;
+}
+
+.login-form input:focus,
+.register-form input:focus {
+    outline: none;
+    border-color: #ff6f61;
+    box-shadow: 0 0 4px rgba(255,111,97,0.5);
+}
+
+/* Buttons */
+.login-btn,
+.register-btn,
+.register-toggle-btn,
+.login-toggle-btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.login-btn {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+.login-btn:hover {
+    background-color: #64bbf5;
+}
+
+.register-btn {
+    background-color: #ffb347;
+    color: #fff;
+}
+
+.register-btn:hover,
+.register-toggle-btn:hover,
+.login-toggle-btn:hover {
+    background-color: #64bbf5;
+}
+
+.register-toggle-btn,
+.login-toggle-btn {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+
+
+/* ========================= */
+/* Display page styling */
+/* ========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #ff6f61;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #fff7ef;
+}
+
+table tr:hover {
+    background-color: #ffe1d6;
+}
+
+.contact-info {
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+    padding: 40px 20px;
+    background: #fff7ef;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    overflow-x: auto; /* allow horizontal scroll if table is wide */
+}
+
+.contact-info table {  /* These comments are added because I struggled my arse off with it */
+    width: auto;       /* Let the table take only as much space as it needs */
+    max-width: 100%;   /* Ensure it never overflows the container */
+    margin: 0 auto 20px auto; /* Center horizontally and keep top/bottom margin */
+    border-collapse: collapse;
+}
+
+.contact-info th,
+.contact-info td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.contact-info th {
+    background-color: #ff6f61;
+    color: #fff;
+    font-weight: bold;
+}
+
+.contact-info tr:nth-child(even) {
+    background-color: #fff7ef;
+}
+
+.contact-info tr:hover {
+    background-color: #ffe1d6;
+}
+
+
+
+/* ========================= */
+/* Appointments page styling */
+/* ========================= */
+.appointments-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px 30px;
+    background: #fff7ef;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.appointments-container h1 {
+    font-size: 2.4rem;
+    color: #ff6f61;
+    margin-bottom: 20px;
+}
+
+.appointments-container p {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.appointment-form {
+    display: block;
+    width: 100%;
+}
+
+.appointment-form label,
+.appointment-form input,
+.appointment-form select {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.appointment-form label {
+    font-weight: bold;
+    color: #444;
+}
+
+.appointment-form input,
+.appointment-form select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: 0.2s ease;
+}
+
+.appointment-form input:focus,
+.appointment-form select:focus {
+    outline: none;
+    border-color: #ff6f61;
+    box-shadow: 0 0 4px rgba(255,111,97,0.5);
+}
+
+.appointment-form .btn,
+.appointments-container .btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+    transition: 0.3s ease;
+    background-color: #ff6f61;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.appointment-form .btn:hover,
+.appointments-container .btn:hover {
+    background-color: #64bbf5;
+}
+
+
+
+/* ========================= */
+/* FLash messages styling */
+/* ========================= */
+.flash {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.flash.error {
+    background-color: #ff6f61;
+    color: #fff;
+}
+
+.flash.success {
+    background-color: #64bbf5;
+    color: #fff;
+}
+
+
+
+/* ========================= */
+/* Login prompt styling */
+/* ========================= */
+.login-prompt {
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.login-prompt a .btn {
+    margin-top: 10px;
+}
+
+
+
+/* ========================= */
+/* Edit and Delete account buttons */
+/* ========================= */
+.edit-btn,
+.delete-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease, transform 0.2s;
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* Edit button */
+.edit-btn {
+    background-color: #2196F3; /* blue */
+    color: #fff;
+}
+
+.edit-btn:hover {
+    background-color: #1976D2;
+    transform: scale(1.05);
+}
+
+/* Delete button */
+.delete-btn {
+    background-color: #f44336; /* red */
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Flex container for multiple buttons */
+.account-btns {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.table-wrapper { /* This comment is also added so that I can remember how not to struggle like this again */
+    overflow-x: auto;  /* Adds horizontal scroll if table is too wide */
+}

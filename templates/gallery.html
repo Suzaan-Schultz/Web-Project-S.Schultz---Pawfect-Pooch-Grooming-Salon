@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Pawfect Pooch Grooming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+       <nav class="navbar">
+    <div class="logo">Pawfect Pooch</div>
+    <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/appointments">Appointments</a></li>
+        <li><a href="/login">Login</a></li> 
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/display_page">Display Page</a></li>
+    </ul>
+   </nav>
+    <div class="gallery">
+        <img src="{{ url_for('static', filename='images/dog1.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog2.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog3.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog4.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog5.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog6.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog7.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog8.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog9.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog10.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog11.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog12.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog13.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog14.jpg') }}" class="gallery-img">
+        <img src="{{ url_for('static', filename='images/dog15.jpg') }}" class="gallery-img">
+    </div>
+
+    <!-- Lightbox modal added to make the images more visually appealing -->
+    <div id="lightbox" class="lightbox">
+        <span id="closeBtn">&times;</span>
+        <img id="lightboxImg">
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

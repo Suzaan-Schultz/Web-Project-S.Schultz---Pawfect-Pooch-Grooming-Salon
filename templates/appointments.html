@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments - Pawfect Pooch Grooming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Pawfect Pooch</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/appointments">Appointments</a></li>
+            {% if session.username %}
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li><a href="/login">Login</a></li>
+            {% endif %}
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/display_page">Display Page</a></li>
+        </ul>
+    </nav>
+
+    <!-- Appointment form container -->
+    <div class="appointments-container">
+        <h1>Book an Appointment</h1>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Appointment form -->
+        <form action="/appointments" method="POST" class="appointment-form">
+            <label for="owner_name">Your Name</label>
+            <input type="text" id="owner_name" name="owner_name" placeholder="Enter your name"
+                   {% if not session.username %}disabled{% endif %}>
+
+            <label for="dog_name">Dog's Name</label>
+            <input type="text" id="dog_name" name="dog_name" placeholder="Enter your dog's name"
+                   {% if not session.username %}disabled{% endif %}>
+
+            <label for="service">Service</label>
+            <select id="service" name="service" {% if not session.username %}disabled{% endif %}>
+                <option value="">Select a Service</option>
+                <option value="Basic Wash">Basic Wash</option>
+                <option value="Summer Grooming">Summer Grooming</option>
+                <option value="Winter Grooming">Winter Grooming</option>
+                <option value="Nail Trim">Nail Trim</option>
+            </select>
+
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date" {% if not session.username %}disabled{% endif %}>
+
+            <label for="time">Preferred Time</label>
+            <input type="time" id="time" name="time" {% if not session.username %}disabled{% endif %}>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="123-456-7890"
+                   {% if not session.username %}disabled{% endif %}>
+
+            <button type="submit" class="btn" {% if not session.username %}disabled{% endif %}>Book Appointment</button>
+        </form>
+
+        <!-- Prompts the user to log in if they are not logged in -->
+        {% if not session.username %}
+            <p class="login-prompt">Please log in to make an appointment.</p>
+            <a href="{{ url_for('login') }}"><button class="btn">Log In</button></a>
+        {% endif %}
+    </div>
+</body>
+</html>
